@@ -1,0 +1,58 @@
+header {
+    height: max-content;
+    text-align: center; 
+    margin:0 auto;
+    background-color: black;  
+}
+.titulo {
+    padding-top: 75px;
+    color:green
+}
+.muestrario {
+    text-align: center;
+    padding:50px 15%
+}
+.cajas {
+    margin:25px auto;
+    border:1px solid orangered;
+}
+.album {
+    padding:0 auto;
+    margin:0 auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.imagen {
+    margin-left:0px;
+    margin-right: 0px;    
+    height:100%;
+    max-height: 260px;
+    background-image: center;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.texto {
+    color:white;
+    padding:5px;    
+}
+.texto h4{
+    margin:10px 0px;
+}
+.texto p {
+    font-size: 1rem;
+    color:gray
+}
+.texto button {
+    margin:10px
+}
+
+/*---Estilos modales--*/
+.modal-agregar {
+    background-color: rgb(45, 168, 45)
+}
+.modal-editar {
+    background-color: rgb(245, 225, 9);
+}
+.modal-borrar {
+    background-color:red
+}

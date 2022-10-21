@@ -1,0 +1,12 @@
+.navbar {
+    padding:15px;
+    background-color: green;
+    
+}
+#logo {
+    color:yellow;
+    font-size: 1.7rem;
+}
+#sublogo {
+    color:orange
+}

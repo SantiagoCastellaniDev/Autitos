@@ -1,0 +1,168 @@
+<header class="">
+    <div>
+        <h1 class="titulo">Autitos</h1>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEducacion">Añadir un auto</button>
+    </div>
+    <div class="muestrario">
+        <div *ngFor="let auto of automoviles" class="cajas row">
+            <div class="album col-md-6">
+                <img [src]="auto.imagen" class="card-img-top imagen" alt="...">
+            </div>
+            <div class="texto col-md-6">
+                <h4>{{auto.marca}} {{auto.modelo}}</h4>
+                <p class="card-title">Marca: {{auto.marca}}</p>
+                <p class="card-title">Modelo: {{auto.modelo}}</p>
+                <p class="card-title">Motor: {{auto.motor}}</p>
+                <p class="card-title">Patente: {{auto.patente}}</p>
+                <p class="card-title">Color: {{auto.color}}</p>
+                <p class="card-title">Cantidad de puertas: {{auto.cantPuertas}}</p>
+                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editAutomovil" (click)="editAuto(auto.id,editableAuto)">Editar</button>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAutomovil" (click)="trashAuto(auto.id,editableAuto)">Eliminar</button>
+            </div>
+        </div>
+    </div>    
+</header>
+
+<!-------AGREGAR AUTOMOVIL----------->
+<div class="modal fade" id="addEducacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-agregar">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">GUARDAR AUTOMOVIL</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!------Formulario------->
+        <form id="agregarEducacion" class="add-form" (ngSubmit)="guardarAuto()" novalidate>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input id="marca" type="text" name="marca" class="form-control" [(ngModel)]="marca" required>
+                </div>
+                <div class="form-group">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input id="modelo" type="text" name="modelo" class="form-control" [(ngModel)]="modelo" required>
+                </div>
+                <div class="form-group">
+                    <label for="motor" class="form-label">Motor</label>
+                    <input id="motor" type="text" name="motor" class="form-control" [(ngModel)]="motor" required>
+                </div>
+                <div class="form-group">
+                    <label for="patente" class="form-label">Patente</label>
+                    <input id="patente" type="text" name="patente" class="form-control" [(ngModel)]="patente">
+                </div>
+                <div class="form-group">
+                    <label for="color" class="form-label">Color</label>
+                    <input id="color" type="text" name="color" class="form-control" [(ngModel)]="color">
+                </div>
+                <div class="form-group">
+                    <label for="cantPuertas" class="form-label">Cantidad de puertas</label>
+                    <input id="cantPuertas" type="number" name="cantPuertas" class="form-control" [(ngModel)]="cantPuertas">
+                </div>
+                <div class="form-group">
+                    <label for="imagen" class="form-label">Imagen</label>
+                    <input id="imagen" type="text" name="imagen" class="form-control" [(ngModel)]="imagen">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input id="password" type="text" name="password" class="form-control" [(ngModel)]="password">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" >Aceptar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>                
+            </div>
+        </form>
+      </div>
+    </div>
+</div>
+
+<!-------EDITAR AUTOMOVIL----------->
+<div class="modal fade" id="editAutomovil" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-editar">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">EDITAR AUTOMOVIL</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!------Formulario------->
+        <form id="editarAutomovil" class="add-form" (ngSubmit)="editarAuto()" novalidate>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input id="marca" type="text" name="marca" class="form-control" [(ngModel)]="marca" required>
+                </div>
+                <div class="form-group">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input id="modelo" type="text" name="modelo" class="form-control" [(ngModel)]="modelo" required>
+                </div>
+                <div class="form-group">
+                    <label for="motor" class="form-label">Motor</label>
+                    <input id="motor" type="text" name="motor" class="form-control" [(ngModel)]="motor" required>
+                </div>
+                <div class="form-group">
+                    <label for="patente" class="form-label">Patente</label>
+                    <input id="patente" type="text" name="patente" class="form-control" [(ngModel)]="patente">
+                </div>
+                <div class="form-group">
+                    <label for="color" class="form-label">Color</label>
+                    <input id="color" type="text" name="color" class="form-control" [(ngModel)]="color">
+                </div>
+                <div class="form-group">
+                    <label for="cantPuertas" class="form-label">Cantidad de puertas</label>
+                    <input id="cantPuertas" type="number" name="cantPuertas" class="form-control" [(ngModel)]="cantPuertas">
+                </div>
+                <div class="form-group">
+                    <label for="imagen" class="form-label">Imagen</label>
+                    <input id="imagen" type="text" name="imagen" class="form-control" [(ngModel)]="imagen">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input id="password" type="text" name="password" class="form-control" [(ngModel)]="password">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" >Aceptar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>                
+            </div>
+        </form>
+      </div>
+    </div>
+</div>
+
+
+
+  <!-----------ELIMINAR AUTOMOVIL------------>
+  <div class="modal fade" id="deleteAutomovil" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modal-borrar">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">ELIMINAR AUTOMOVIL</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form (ngSubmit)="eliminarAutomovil()">
+            <div class="modal-body">
+                <div>
+                    <h5>¿Desea eliminar este automovil?</h5>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Ingrese la contraseña</label>
+                    <input id="password" type="text" name="password" class="form-control" [(ngModel)]="password">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Eliminar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>
+<!-------------------------------->
+
+
+
+
+
+
+
+
