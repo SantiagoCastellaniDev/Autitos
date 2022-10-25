@@ -9,3 +9,80 @@
 #sublogo {
     color:orange
 }
+
+/* AUTO NARANJA */
+#auto1 {
+    position:absolute;
+    height:50px;
+    width:auto;
+    animation-duration: 6s;
+    animation-name: slidein1;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+@keyframes slidein1 {
+    from {
+      left: -200px;
+    }  
+    to {
+      left: 2000px;      
+    }
+}
+
+/* AUTO FUCSIA */
+#auto2 {
+    position:absolute;
+    height:95px;
+    width:auto;
+    animation-duration: 8s;
+    animation-name: slidein2;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+@keyframes slidein2 {
+    from {
+      left: 2200px;
+    }  
+    to {
+      left: -200px;      
+    }
+}
+
+/* AUTO VERDE OSCURO */
+#auto3 {
+    position:absolute;
+    height:55px;
+    width:auto;
+    animation-duration: 7s;
+    animation-name: slidein3;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+@keyframes slidein3 {
+    from {
+      left: -200px;
+    }  
+    to {
+      left: 2200px;      
+    }
+}
+
+/* VERDE CLARO */
+#auto4 {
+    position:absolute;
+    height:90px;
+    width:auto;
+    animation-duration: 5s;
+    animation-name: slidein4;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+@keyframes slidein4 {
+    from {
+      left: 2200px;
+    }  
+    to {
+      left: -200px;      
+    }
+}
+
