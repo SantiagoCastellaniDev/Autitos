@@ -1,4 +1,6 @@
-# Autos
+# Auticos CRUD - Desafio mensual 1 - Todo Code
+
+Frontend realizado en Angular, conectado a un app back en Java-SpringBoot 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
 
