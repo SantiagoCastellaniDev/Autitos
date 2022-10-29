@@ -2,6 +2,8 @@
 
 Frontend realizado en Angular, conectado a un app backend construida en Java con SpringBoot como framework.
 
+Es un simple CRUD de práctica, en el que se puede agregar, editar y eliminar el contenido de un listado de autos.
+
 Demo: [Auticos](https://auticos.vercel.app/)
 
 ....................................................................................................
