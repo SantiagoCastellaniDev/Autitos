@@ -11,6 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class HeaderComponent implements OnInit {
 
+  active: boolean = false;
   automoviles: Automovil[]=[];
   auto:any;
   idAuto?:any;

@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+
+.rojo {
+    color:red
+  }
+  .naranja {
+    color:orange
+  }
+  .amarillo {
+    color:yellow
+  }
+  .verde {
+    color:green
+  }
+  
+  .celeste {
+    color:lightblue
+  }
+  .azul {
+    color:blue
+  }
+  .violeta {
+    color:purple
+  }

@@ -1,7 +1,18 @@
 <header class="">
     <div>
-        <h1 class="titulo">Auticos</h1>
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEducacion">Añadir un auto</button>
+        <h1 class="titulo">
+            <span class="rojo">A</span>
+            <span class="naranja">u</span>
+            <span class="amarillo">t</span>
+            <span class="verde">i</span>
+            <span class="celeste">c</span>
+            <span class="azul">o</span>
+            <span class="violeta">s</span>
+            CRUD
+        </h1>        
+        <button id="autito" type="button" class="btn btn-primary" (click)="active=!active" placement="right" ngbTooltip="Activar/Desactivar MODO Crud"><i class="bi bi-car-front"></i></button>
+        <br>
+        <button *ngIf="active" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEducacion">Añadir un auto</button>
     </div>
     <div class="muestrario">
         <div *ngFor="let auto of automoviles" class="cajas row">
@@ -16,8 +27,8 @@
                 <p class="card-title">Patente: {{auto.patente}}</p>
                 <p class="card-title">Color: {{auto.color}}</p>
                 <p class="card-title">Cantidad de puertas: {{auto.cantPuertas}}</p>
-                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editAutomovil" (click)="editAuto(auto.id,editableAuto)">Editar</button>
-                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAutomovil" (click)="trashAuto(auto.id,editableAuto)">Eliminar</button>
+                <button *ngIf="active" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editAutomovil" (click)="editAuto(auto.id,editableAuto)">Editar</button>
+                <button *ngIf="active" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAutomovil" (click)="trashAuto(auto.id,editableAuto)">Eliminar</button>               
             </div>
         </div>
     </div>    
@@ -67,7 +78,7 @@
                     <input id="password" type="text" name="password" class="form-control" [(ngModel)]="password">
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer botones">
                 <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" >Aceptar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>                
             </div>
@@ -75,6 +86,7 @@
       </div>
     </div>
 </div>
+
 
 <!-------EDITAR AUTOMOVIL----------->
 <div class="modal fade" id="editAutomovil" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -120,7 +132,7 @@
                     <input id="password" type="text" name="password" class="form-control" [(ngModel)]="password">
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer botones">
                 <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" >Aceptar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>                
             </div>
@@ -128,7 +140,6 @@
       </div>
     </div>
 </div>
-
 
 
   <!-----------ELIMINAR AUTOMOVIL------------>
@@ -144,12 +155,12 @@
                 <div>
                     <h5>¿Desea eliminar este automovil?</h5>
                 </div>
-                <div class="form-group">
+                <div class="form-group contraseña">
                     <label for="password" class="form-label">Ingrese la contraseña</label>
                     <input id="password" type="text" name="password" class="form-control" [(ngModel)]="password">
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer botones">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Eliminar</button>
             </div>
