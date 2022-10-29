@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Automovil } from 'src/app/model/automovil';
 import { AutomovilService } from 'src/app/services/automovil.service';
 import { HttpHeaders } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class HeaderComponent implements OnInit {
 
   active: boolean = false;
-  automoviles: Automovil[]=[];
+  automoviles:Automovil[]=[];
   auto:any;
   idAuto?:any;
   marca:string="";
@@ -23,7 +24,7 @@ export class HeaderComponent implements OnInit {
   cantPuertas:number=0;
   imagen:string="";
   addForm: any;
-  editableAuto: Automovil[]=[];
+  editableAuto:any;
   editId: any;
   borrarId:any;
   password:string="";
@@ -55,14 +56,26 @@ export class HeaderComponent implements OnInit {
     if (this.password=="verdeverde"){
       this.automovilService.guardarAutomovil(nuevoAuto).subscribe(
         data=>{
-          alert("El auto se guardo correctamente")
+          Swal.fire(
+            'OK',
+            'El auto se guardó correctamente',
+            'success'
+          )
         },
         (error)=>{
-          alert("Por algún motivo no se esta pudiendo guardar el vehículo")
+          Swal.fire(
+            '¿Error?',
+            'Por algún motivo no se puedo almacenar la información',
+            'question'
+          )
         },
         ()=>{this.obtenerAutos()})
     } else {
-      alert("Para agregar autos necesita una clave secreta")
+      Swal.fire({
+        icon: 'error',
+        title: 'Password',
+        text: 'Se necesita una clave super secreta para crear un automovil'
+      })
     }    
   }
 
@@ -71,9 +84,17 @@ export class HeaderComponent implements OnInit {
   //Boton abrir modal: Capturar Id y automovil
 
   editAuto(id:any,automovil: Automovil[]){
-    this.editableAuto = automovil;
-    this.editId = id;
-    console.log(id)    
+    var auto = this.editableAuto;
+    this.editId = id;   
+    auto = this.automoviles.filter((auto)=>auto.id==id);
+     /* Cargar el modal con los datos */
+    this.marca=auto[0].marca;
+    this.modelo=auto[0].modelo;
+    this.color=auto[0].color;
+    this.cantPuertas=auto[0].cantPuertas;
+    this.patente=auto[0].patente;
+    this.motor=auto[0].motor;
+    this.imagen=auto[0].imagen;
   }
 
   //BOTON ACTUALIZAR AUTOMOVIL
@@ -96,14 +117,26 @@ export class HeaderComponent implements OnInit {
     if (this.password=="verdeverde") {
       this.automovilService.actualizarAutomovil(editId,nuevoAuto,headers).subscribe(
         data=>{
-          alert("El auto se guardo correctamente")
+          Swal.fire(
+            'OK',
+            'El auto se guardó correctamente',
+            'success'
+          )
         },
         (error) => {
-          alert("Algo ha fallado: " + error);
+          Swal.fire(
+            '¿Error?',
+            'Por algún motivo no se puedo almacenar la información',
+            'question'
+          )
         },
         ()=>{this.obtenerAutos()})
     } else {
-      alert("Para editar autos necesita una clave secreta")
+      Swal.fire({
+        icon: 'error',
+        title: 'Password',
+        text: 'Se necesita una clave super secreta para editar un automovil'
+      })
     }   
   }
 
@@ -120,14 +153,26 @@ export class HeaderComponent implements OnInit {
     if (this.password=="verdeverde"){
       this.automovilService.borrarAutomovil(this.borrarId).subscribe(
         data=>{
-          alert("El auto se elimino correctamente")
+          Swal.fire(
+            'Eliminado',
+            'El auto se eliminó correctamente',
+            'success'
+          )
         },
         (error) => {
-          alert("Algo ha fallado: " + error);
+          Swal.fire(
+            '¿Error?',
+            'Por algún motivo no se puedo eliminar la información',
+            'question'
+          )
         },
         ()=>{this.obtenerAutos()})
     } else {
-      alert("Para eliminar autos necesita una clave secreta")
+      Swal.fire({
+        icon: 'error',
+        title: 'Password',
+        text: 'Se necesita una clave super secreta para eliminar un automovil'
+      })
     }    
   }
 
