@@ -10,7 +10,7 @@ export class AutomovilService {
 
   /*autoURL = "http://localhost:8080/autos/";*/
 
-  autoURL = "https://auticos.herokuapp.com/autos/"
+  autoURL = "https://auticos-backend-production.up.railway.app/"
 
   constructor(private http:HttpClient) {}
 
