@@ -10,7 +10,7 @@ export class AutomovilService {
 
   /*autoURL = "http://localhost:8080/autos/";*/
 
-  autoURL = "https://auticos-backend-production.up.railway.app/"
+  autoURL = "https://auticos-backend-production.up.railway.app/autos/"
 
   constructor(private http:HttpClient) {}
 
